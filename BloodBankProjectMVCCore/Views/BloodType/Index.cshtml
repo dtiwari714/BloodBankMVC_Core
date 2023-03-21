@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 style="text-align:center;">BloodType Details</h1>
+<table class="table table-bordered table-responsive table-dark table-hover">
+    <tr>
+        <th>BloodTypeID</th>
+        <th>BloodGroup</th>
+        <th>RhFactor</th>
+        <th>Actions</th>
+    </tr>
+    @if (Model != null)
+    {
+        @foreach (BloodTypeModel item in Model)
+        {
+            <tr>
+                <td>@item.BloodTypeID</td>
+                <td>@item.BloodGroup</td>
+                <td>@item.RhFactor</td>
+                <td>
+                    <a class="btn btn-success" asp-action="EditEmployee" asp-route-id="@item.BloodTypeID">Edit</a>
+                    <a class="btn btn-danger" asp-action="DeleteEmployee" asp-route-id="@item.BloodTypeID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    }
+</table>
