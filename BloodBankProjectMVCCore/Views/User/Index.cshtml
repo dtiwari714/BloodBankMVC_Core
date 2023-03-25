@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{
+    int count = 1;
+}
+<h1 style="text-align:center;">User Detail</h1>
+<a class="btn btn-success" asp-action="CreateUser">New User</a>
+
+<table class="table table-bordered table-responsive table-dark table-hover">
+    <tr>
+        <th>Sr.No</th>
+        <th>UserId</th>
+        <th>Name</th>
+        <th>PhoneNumber</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th>
+    </tr>
+    @if (Model != null)
+    {
+        @foreach (UserModel item in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@item.UserId</td>
+                <td>@item.Name</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Email</td>
+                <td>@item.Password</td>
+                <td>
+                    <a class="btn btn-success" asp-action="UpdateUser" asp-route-id="@item.UserId">Edit</a>
+                    <a class="btn btn-danger" asp-action="DeleteUser" asp-route-id="@item.UserId">Delete</a>
+                </td>
+            </tr>
+            @if (count >= 1)
+            {
+                count = count + 1;
+            }
+        }
+    }
+</table>

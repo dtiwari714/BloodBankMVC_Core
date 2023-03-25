@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="CreateBloodBank">Add Blood Bank</a>
+</p>
+<table class="table table-bordered table-responsive table-dark table-hover">
+    <tr>
+        <th>BloodBankID</th>
+        <th>BloodBankName</th>
+        <th>Address</th>
+        <th>Phone</th>
+        
+        <th>Actions</th>
+    </tr>
+    @if (Model != null)
+    {
+        @foreach (BloodBankModel item in Model)
+        {
+            <tr>
+                <td>@item.BloodBankID</td>
+                <td>@item.BloodBankName</td>
+                <td>@item.Address</td>
+                <td>@item.Phone</td>
+                <td>
+                    <a class="btn btn-success" asp-action="UpdateBloodBank" asp-route-id="@item.BloodBankID">Edit</a>
+                    <a class="btn btn-danger" asp-action="DeleteDonor" asp-route-id="@item.BloodBankID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    }
+</table>

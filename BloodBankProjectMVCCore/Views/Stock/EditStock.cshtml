@@ -1,0 +1,44 @@
+﻿@model BloodBankProjectMVCCore.Models.StockModel
+
+@{
+    ViewData["Title"] = "EditStock";
+}
+
+<h1>EditStock</h1>
+
+<h4>StockModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditStock">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StockID" />
+            <div class="form-group">
+                <label value="BloddType" name="BloddType" class="control-label">BloddType</label>
+                <select asp-for="BloodTypeID" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfBloodType,"Value","Text"))"></select>
+                <span asp-validation-for="BloodTypeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label value="BloodBank" name="BloodBank" class="control-label">BloodBank Name</label>
+                <select asp-for="BloodBankID" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfBloodBank,"Value","Text"))"></select>
+                <span asp-validation-for="BloodBankID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

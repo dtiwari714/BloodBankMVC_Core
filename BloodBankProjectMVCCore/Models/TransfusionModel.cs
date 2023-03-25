@@ -1,11 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace BloodBankProjectMVCCore.Models
 {
     public class TransfusionModel
     {
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-DQ4VN0E;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True;Encrypt=True;");
+
         [Key]
         public int TransfusionID { get; set; }
 
@@ -26,5 +30,7 @@ namespace BloodBankProjectMVCCore.Models
 
         [ForeignKey("StaffID")]
         public virtual StaffModel Staff { get; set; }
+
+        
     }
 }

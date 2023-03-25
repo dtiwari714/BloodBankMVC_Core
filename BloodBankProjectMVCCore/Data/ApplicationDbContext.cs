@@ -9,6 +9,7 @@ namespace BloodBankProjectMVCCore.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
         public new DbSet<BloodBankModel> BloodBanks { get; set; }
         public new DbSet<BloodTypeModel> BloodTypes { get; set; }
