@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BloodBankProjectMVCCore.styles.css" asp-append-version="true" />
 </head>
@@ -34,7 +36,7 @@
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo me-auto"><a href="index.html">Blood Bank</a></h1>
+            <h1 class="logo me-auto"><a asp-controller="Home" asp-action="Index">Blood Bank</a></h1>
 
             <nav id="navbar" class="navbar">
                 <ul>

@@ -1,6 +1,7 @@
-﻿using BloodBankProjectMVCCore.Models;
+using BloodBankProjectMVCCore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace BloodBankProjectMVCCore.Controllers
 {
@@ -61,7 +62,6 @@ namespace BloodBankProjectMVCCore.Controllers
             res = new_bloodBank.delete(newBB);
 
             return RedirectToAction(nameof(Index));
-
         }
     }
 }

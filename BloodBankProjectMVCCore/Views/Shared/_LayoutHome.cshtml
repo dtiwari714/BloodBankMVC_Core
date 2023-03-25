@@ -49,9 +49,87 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link" asp-action="Index" asp-controller="BloodType">Blood Type</a></li>
-                    <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                    @if (User.Identity.IsAuthenticated||User.IsInRole("Admin"))
+                    {
+                        <li><a class="nav-link" asp-action="Index" asp-controller="BloodType">Blood Type</a></li>
+                    }
+                   @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Blood Bank</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-action="Index" asp-controller="BloodBank">Show Blood Bank</a></li>
+                                <li><a class="dropdown-item" asp-action="AddBloodBank" asp-controller="BloodBank">Add Bloodbank</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Donor</a> 
+                            <ul class="dropdown-menu">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Donor">Show Donor</a></li>
+                                }
+                                else
+                                {
+                                    <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Donor">Add Donor</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Recipient</a> 
+                            <ul class="dropdown-menu">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Employee">Show Recipient</a></li>
+                                }
+                                else
+                                {
+                                    <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Employee">Add Recipient</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Staff</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Employee">Show Staff</a></li>
+                                <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Employee">Add Staff</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Stock</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Employee">Show Stock</a></li>
+                                <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Employee">Add Stock</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transfusion</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Employee">Show Trasfusion</a></li>
+                                <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Employee">Add Transfusion</a></li>
+                            </ul>
+                        </li>
+                    }
+                    @*<li><a class="nav-link" asp-action="Index" asp-controller="BloodBank">Donor</a></li>
+                    <li><a class="nav-link" asp-action="Index" asp-controller="BloodType">Recipient</a></li>
+                    <li><a class="nav-link" asp-action="Index" asp-controller="BloodBank">Staff</a></li>
+                    <li><a class="nav-link" asp-action="Index" asp-controller="BloodBank">Stock</a></li>
+                    <li><a class="nav-link" asp-action="Index" asp-controller="BloodBank">Transfusion</a></li>*@
                     <partial name="_LoginPartial" />
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
