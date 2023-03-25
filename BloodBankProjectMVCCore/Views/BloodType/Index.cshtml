@@ -5,24 +5,24 @@
 }
 <h1 style="text-align:center;">BloodType Details</h1>
 <table class="table table-bordered table-responsive table-dark table-hover">
-    <tr>
+    <tr style="text-align:center">
         <th>BloodTypeID</th>
         <th>BloodGroup</th>
         <th>RhFactor</th>
-        <th>Actions</th>
+        @*<th>Actions</th>*@
     </tr>
     @if (Model != null)
     {
         @foreach (BloodTypeModel item in Model)
         {
-            <tr>
+            <tr style="text-align:center">
                 <td>@item.BloodTypeID</td>
                 <td>@item.BloodGroup</td>
                 <td>@item.RhFactor</td>
-                <td>
+               @*<td>
                     <a class="btn btn-success" asp-action="EditEmployee" asp-route-id="@item.BloodTypeID">Edit</a>
                     <a class="btn btn-danger" asp-action="DeleteEmployee" asp-route-id="@item.BloodTypeID">Delete</a>
-                </td>
+                </td>*@
             </tr>
         }
 
