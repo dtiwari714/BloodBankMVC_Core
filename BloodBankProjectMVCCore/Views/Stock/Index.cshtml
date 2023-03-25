@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BloodBankProjectMVCCore.Models.StockModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{
+    int count = 1;
+}
+<h1 style="text-align:center;">Stock Detail</h1>
+<a class="btn btn-success" asp-action="CreateStock">New Stock</a>
+
+<table class="table table-bordered table-responsive table-dark table-hover">
+    <tr>
+        <th>Sr.No</th>
+        <th>StockID</th>
+        <th>BloodTypeID</th>
+        <th>BloodBankID</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+    @if (Model != null)
+    {
+
+        @foreach (StockModel item in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@item.StockID</td>
+                <td>@item.BloodTypeID</td>
+                <td>@item.BloodBankID</td>
+                <td>@item.Quantity</td>
+                <td>
+                    <a class="btn btn-success" asp-action="EditStock" asp-route-id="@item.StockID">Edit</a>
+                    <a class="btn btn-danger" asp-action="DeleteStock" asp-route-id="@item.StockID">Delete</a>
+                </td>
+            </tr>
+            @if (count >= 1)
+            {
+                count = count + 1;
+            }
+        }
+
+    }
+</table>

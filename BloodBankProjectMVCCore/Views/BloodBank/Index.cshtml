@@ -1,13 +1,15 @@
-﻿
+
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<h1 style="text-align:center;">BloodBank Details</h1>
-<div class="m-2">
-    <a class="btn btn-primary" asp-action="AddBloodBank" asp-controller="BloodBank">Insert Blood Bank</a>
-</div>
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="CreateBloodBank">Add Blood Bank</a>
+</p>
+
 <table class="table table-bordered table-responsive table-dark table-hover">
     <tr>
         <th>BloodBankID</th>
@@ -26,8 +28,9 @@
                 <td>@item.Address</td>
                 <td>@item.Phone</td>
                 <td>
-                    <a class="btn btn-success" asp-action="EditBloodBannk" asp-route-id="@item.BloodBankID">Edit</a>
-                    <a class="btn btn-danger" asp-action="DeleteEmployee" asp-route-id="@item.BloodBankID">Delete</a>
+                    <a class="btn btn-success" asp-action="UpdateBloodBank" asp-route-id="@item.BloodBankID">Edit</a>
+                    <a class="btn btn-danger" asp-action="DeleteDonor" asp-route-id="@item.BloodBankID">Delete</a>
+
                 </td>
             </tr>
         }

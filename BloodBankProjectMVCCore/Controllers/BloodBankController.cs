@@ -1,45 +1,67 @@
-﻿using BloodBankProjectMVCCore.Models;
+using BloodBankProjectMVCCore.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace BloodBankProjectMVCCore.Controllers
 {
     public class BloodBankController : Controller
     {
-        BloodBankModel bloodbankObj = new BloodBankModel();
+        BloodBankModel new_bloodBank = new BloodBankModel();
         public IActionResult Index()
         {
-            bloodbankObj = new BloodBankModel();
-            List<BloodBankModel> lst = bloodbankObj.getData();
-            return View(lst);
+            new_bloodBank = new BloodBankModel();
+            List<BloodBankModel> listOfBloodBank= new_bloodBank.getData();
+            return View(listOfBloodBank);
         }
-        public IActionResult AddBloodBank()
+        public IActionResult CreateBloodBank()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult AddBloodBank(BloodBankModel blood)
+        public IActionResult CreateBloodBank(BloodBankModel newBB)
         {
-            bool res;
-            //if (ModelState.IsValid)
-            //{
-            bloodbankObj = new BloodBankModel();
-            res = bloodbankObj.insert(blood);
-            if (res)
+            if (ModelState.IsValid)
             {
-                TempData["msg"] = "Added successfully";
-            }
-            //}
-            else
-            {
-                TempData["msg"] = "Not Added. something went wrong..!!";
+                bool res;
+                new_bloodBank = new BloodBankModel();
+                res = new_bloodBank.insert(newBB);
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }
-        [HttpGet]
-        public IActionResult EditBloodBannk(string id)
+        public IActionResult UpdateBloodBank(string? id)
         {
-            BloodBankModel emp = bloodbankObj.getData(id);
-            return View(emp);
+            BloodBankModel NewBB = new_bloodBank.getData(id);
+            return View(NewBB);
+        }
+        [HttpPost]
+        public IActionResult UpdateBloodBank(BloodBankModel NewBB)
+        {
+            if (ModelState.IsValid)
+            {
+                bool result;
+                new_bloodBank = new BloodBankModel();
+                result = new_bloodBank.update(NewBB);
+                return RedirectToAction(nameof(Index));
+           }
+            return View(NewBB);
+        }
+        [HttpGet]
+        public IActionResult DeleteDonor(string id)
+        {
+            BloodBankModel oldDonor = new_bloodBank.getData(id);
+            return View(oldDonor);
+        }
+        [HttpPost]
+        public IActionResult DeleteDonor(BloodBankModel newBB)
+        {
+
+            bool res;
+            new_bloodBank = new BloodBankModel();
+            res = new_bloodBank.delete(newBB);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

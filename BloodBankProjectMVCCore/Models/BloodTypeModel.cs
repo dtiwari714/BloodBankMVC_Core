@@ -6,9 +6,9 @@ namespace BloodBankProjectMVCCore.Models
 {
     public class BloodTypeModel
     {
-        SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-4I63O79Q\SQL2022;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True;Encrypt=True;");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-DQ4VN0E;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True;Encrypt=True;");
         [Key]
-        public int BloodTypeID { get; set; }
+        public string? BloodTypeID { get; set; }
 
         [Required(ErrorMessage = "Blood Group is required")]
         [StringLength(10)]
@@ -26,7 +26,7 @@ namespace BloodBankProjectMVCCore.Models
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 lstEmp.Add(new BloodTypeModel {
-                    BloodTypeID = Convert.ToInt32(dr["BloodTypeID"].ToString()),
+                    BloodTypeID = dr["BloodTypeID"].ToString(),
                     BloodGroup = dr["BloodGroup"].ToString(),
                     RhFactor = dr["RhFactor"].ToString() });
             }
@@ -42,7 +42,7 @@ namespace BloodBankProjectMVCCore.Models
             {
                 while (dr.Read())
                 {
-                    emp.BloodTypeID = Convert.ToInt32(dr["BloodTypeID"].ToString());
+                    emp.BloodTypeID = dr["BloodTypeID"].ToString();
                     emp.BloodGroup = dr["BloodGroup"].ToString();
                     emp.RhFactor = dr["RhFactor"].ToString();
                 }

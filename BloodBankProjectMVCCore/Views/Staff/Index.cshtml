@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    int count = 1;
+}
+<h1 style="text-align:center;">Donor Detail</h1>
+<a class="btn btn-success" asp-action="CreateStaff">New Staff</a>
+
+<table class="table table-bordered table-responsive table-dark table-hover">
+    <tr>
+        <th>Sr.No</th>
+        <th>DonorID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>BloodBank</th>
+        <th>User</th>
+        <th>Actions</th>
+    </tr>
+    @if (Model != null)
+    {
+
+        @foreach (StaffModel item in Model)
+        {
+            <tr>
+                <td>@count</td>
+                <td>@item.StaffID</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+                <td>@item.BloodBankID</td>
+                <td>@item.UserId</td>
+                <td>
+                    <a class="btn btn-success" asp-action="EditStaff" asp-route-id="@item.StaffID">Edit</a>
+                    <a class="btn btn-danger" asp-action="DeleteStaff" asp-route-id="@item.StaffID">Delete</a>
+                </td>
+            </tr>
+            @if (count >= 1)
+            {
+                count = count + 1;
+            }
+        }
+
+    }
+</table>

@@ -1,0 +1,50 @@
+﻿
+@{
+      ViewData["Title"] = "Index";
+ }
+
+@{
+     int count = 1;
+}
+    <h1 style="text-align:center;">Recipient Detail</h1>
+<a class="btn btn-success" asp-action="CreateRecipient">New Recipient</a>
+
+    <table class="table table-bordered table-responsive table-dark table-hover">
+        <tr>
+            <th>Sr.No</th>
+            <th>DonorID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>BloodType</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+        @if (Model != null)
+        {
+
+            @foreach (RecipientModel item in Model)
+            {
+                <tr>
+                    <td>@count</td>
+                    <td>@item.RecipientID</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Phone</td>
+                    <td>@item.BloodTypeID</td>
+                    <td>@item.UserId</td>
+                    <td>
+                        <a class="btn btn-success" asp-action="EditRecipient" asp-route-id="@item.RecipientID">Edit</a>
+                    <a class="btn btn-danger" asp-action="DeleteRecipient" asp-route-id="@item.RecipientID">Delete</a>
+                    </td>
+                </tr>
+                @if (count >= 1)
+                {
+                    count = count + 1;
+                }
+            }
+
+        }
+    </table>
