@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BloodBankProjectMVCCore.Controllers
 {
-    public class RecipientController1 : Controller
+    public class RecipientController : Controller
     {
         private DataBaseContext _dataBaseContext;
-        public RecipientController1(DataBaseContext dataBaseContext)
+        public RecipientController(DataBaseContext dataBaseContext)
         {
             _dataBaseContext = dataBaseContext;
         }

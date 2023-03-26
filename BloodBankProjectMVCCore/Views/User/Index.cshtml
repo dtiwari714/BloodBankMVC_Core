@@ -31,8 +31,8 @@
                 <td>@item.Email</td>
                 <td>@item.Password</td>
                 <td>
-                    <a class="btn btn-success" asp-action="UpdateUser" asp-route-id="@item.UserId">Edit</a>
-                    <a class="btn btn-danger" asp-action="DeleteUser" asp-route-id="@item.UserId">Delete</a>
+                    <a class="teal" asp-action="UpdateUser" asp-route-id="@item.UserId">Edit</a>
+                    <a class="teal" asp-action="DeleteUser" asp-route-id="@item.UserId">Delete</a>
                 </td>
             </tr>
             @if (count >= 1)

@@ -6,7 +6,7 @@ namespace BloodBankProjectMVCCore.Models
 {
     public class BloodTypeModel
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-DQ4VN0E;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True;Encrypt=True;");
+        SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-4I63O79Q\SQL2022;Initial Catalog=BloodBankDb;Integrated Security=True;TrustServerCertificate=True;Encrypt=True;");
         [Key]
         public string? BloodTypeID { get; set; }
 

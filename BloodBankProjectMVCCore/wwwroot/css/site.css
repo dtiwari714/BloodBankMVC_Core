@@ -657,6 +657,12 @@ a {
     cursor: pointer;
     transition: .5s;
 }
+.teal {
+    margin:10px;
+    padding: 10px;
+    background: teal;
+    color: white;
+}
 }.btn:hover {
     background-position: right;
 }

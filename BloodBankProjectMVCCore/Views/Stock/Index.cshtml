@@ -31,8 +31,8 @@
                 <td>@item.BloodBankID</td>
                 <td>@item.Quantity</td>
                 <td>
-                    <a class="btn btn-success" asp-action="EditStock" asp-route-id="@item.StockID">Edit</a>
-                    <a class="btn btn-danger" asp-action="DeleteStock" asp-route-id="@item.StockID">Delete</a>
+                    <a class="teal" asp-action="EditStock" asp-route-id="@item.StockID">Edit</a>
+                    <a class="teal" asp-action="DeleteStock" asp-route-id="@item.StockID">Delete</a>
                 </td>
             </tr>
             @if (count >= 1)

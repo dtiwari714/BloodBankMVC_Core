@@ -74,7 +74,7 @@
                                 }
                                 else
                                 {
-                                    <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Donor">Add Donor</a></li>
+                                    <li><a class="dropdown-item" asp-action="createDonor" asp-controller="Donor">Add Donor</a></li>
                                 }
                             </ul>
                         </li>
@@ -86,11 +86,11 @@
                             <ul class="dropdown-menu">
                                 @if (User.IsInRole("Admin"))
                                 {
-                                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Employee">Show Recipient</a></li>
+                                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Recipient">Show Recipient</a></li>
                                 }
                                 else
                                 {
-                                    <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Employee">Add Recipient</a></li>
+                                    <li><a class="dropdown-item" asp-action="CreateRecipient" asp-controller="Recipient">Add Recipient</a></li>
                                 }
                             </ul>
                         </li>
@@ -100,8 +100,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Staff</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Employee">Show Staff</a></li>
-                                <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Employee">Add Staff</a></li>
+                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Staff">Show Staff</a></li>
+                                <li><a class="dropdown-item" asp-action="CreateStaff" asp-controller="Staff">Add Staff</a></li>
                             </ul>
                         </li>
                     }
@@ -110,12 +110,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Stock</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Employee">Show Stock</a></li>
-                                <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Employee">Add Stock</a></li>
+                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Stock">Show Stock</a></li>
+                                <li><a class="dropdown-item" asp-action="CreateStock" asp-controller="Stock">Add Stock</a></li>
                             </ul>
                         </li>
                     }
-                    @if (User.IsInRole("Admin"))
+@*                    @if (User.IsInRole("Admin"))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Transfusion</a>
@@ -124,7 +124,7 @@
                                 <li><a class="dropdown-item" asp-action="AddDonor" asp-controller="Employee">Add Transfusion</a></li>
                             </ul>
                         </li>
-                    }
+                    }*@
                     @*<li><a class="nav-link" asp-action="Index" asp-controller="BloodBank">Donor</a></li>
                     <li><a class="nav-link" asp-action="Index" asp-controller="BloodType">Recipient</a></li>
                     <li><a class="nav-link" asp-action="Index" asp-controller="BloodBank">Staff</a></li>
